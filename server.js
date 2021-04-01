@@ -29,7 +29,7 @@ app.post('/data', (req, res) => {
     res.send(projectData);
 });
 
-
+// get Route
 app.get('/data', (req, res) => {
     console.log("sending data from server ",projectData);
     res.send(projectData);
@@ -39,10 +39,4 @@ app.get('/data', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
 });
-////////////////////////////////////////////////////////////////////////////////////
-
-
-// Initialize all route with a callback function
-
-// Callback function to complete GET '/all'
 
