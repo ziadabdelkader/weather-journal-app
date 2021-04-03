@@ -10,6 +10,8 @@ const contentView = document.querySelector('#content');
 
 // Event listener to add function to existing HTML DOM element
 generate.addEventListener('click', generateClickHandler);
+// updates the UI if there is already data on the server
+updateUI();
 
 // Event handler for clicking generate button
 async function generateClickHandler() {
@@ -62,9 +64,12 @@ async function updateUI() {
     const response = await fetch('/data');
     try {
         const data = await response.json();
-        tempView.innerHTML = data.temp;
-        dateView.innerHTML = data.date;
-        contentView.innerHTML = data.feelings;
+        if(data.temp){
+            tempView.innerHTML = data.temp;
+            dateView.innerHTML = data.date;
+            contentView.innerHTML = data.feelings;
+        }
+
     }catch (err){
         console.log('error in update UI ',err);
     }
